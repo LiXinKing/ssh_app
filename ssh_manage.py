@@ -9,4 +9,6 @@ def exec_cmd(ip, usr_name, password, cmd_list):
             ssh.exec_command(cmd)
         ssh.close()
     except:
-        raise
+        return "error para"
+
+    return "exec ok"

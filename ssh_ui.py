@@ -9,6 +9,7 @@
 
 from PyQt4 import QtCore, QtGui
 import sys
+from ssh_manage import exec_cmd
 
 try:
     _fromUtf8 = QtCore.QString.fromUtf8
@@ -81,11 +82,12 @@ class Ui_Dialog(object):
         :return:
         """
         exec_ip = self.lineEdit.text()
-        a = self.comboBox.currentText()
-
-        #user_name = self.lineEdit_2.text()
-        #exec_cmd(exec_ip, "root", )
-        msg_box = QtGui.QMessageBox(QtGui.QMessageBox.Warning, "Alert", "解锁admin密码+%s" % a)
+        #a = self.comboBox.currentText()
+        # TODO:ADD cmd here
+        cmd = ""
+        pass_word = self.lineEdit_2.text()
+        result_msg = exec_cmd(exec_ip, "root", pass_word, cmd)
+        msg_box = QtGui.QMessageBox(QtGui.QMessageBox.Warning, "Alert", "解锁admin密码:%s" % result_msg)
         msg_box.exec_()
 
     def clicked_button2(self):
@@ -93,18 +95,28 @@ class Ui_Dialog(object):
         修改admin密码
         :return:
         """
-        msg_box = QtGui.QMessageBox(QtGui.QMessageBox.Warning, "Alert", "修改admin密码")
+        exec_ip = self.lineEdit.text()
+        #a = self.comboBox.currentText()
+        # TODO:ADD cmd here
+        cmd = ""
+        pass_word = self.lineEdit_2.text()
+        result_msg = exec_cmd(exec_ip, "root", pass_word, cmd)
+        msg_box = QtGui.QMessageBox(QtGui.QMessageBox.Warning, "Alert", "修改admin密码:%s" % result_msg)
         msg_box.exec_()
-        pass
 
     def clicked_button3(self):
         """
         防止回退补丁
         :return:
         """
-        msg_box = QtGui.QMessageBox(QtGui.QMessageBox.Warning, "Alert", "防止回退补丁!")
+        exec_ip = self.lineEdit.text()
+        #a = self.comboBox.currentText()
+        # TODO:ADD cmd here
+        cmd = ""
+        pass_word = self.lineEdit_2.text()
+        result_msg = exec_cmd(exec_ip, "root", pass_word, cmd)
+        msg_box = QtGui.QMessageBox(QtGui.QMessageBox.Warning, "Alert", "防止回退补丁:%s" % result_msg)
         msg_box.exec_()
-        pass
 
 
 if __name__ == "__main__":
