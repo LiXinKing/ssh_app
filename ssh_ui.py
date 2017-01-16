@@ -10,6 +10,7 @@
 from PyQt4 import QtCore, QtGui
 import sys
 from ssh_manage import exec_cmd
+from MessageDialogg import Ui_DialogMessage
 
 try:
     _fromUtf8 = QtCore.QString.fromUtf8
@@ -109,15 +110,18 @@ class Ui_Dialog(object):
         防止回退补丁
         :return:
         """
-        exec_ip = self.lineEdit.text()
+
+        #exec_ip = self.lineEdit.text()
         #a = self.comboBox.currentText()
         # TODO:ADD cmd here
-        cmd = ""
-        pass_word = self.lineEdit_2.text()
-        result_msg = exec_cmd(exec_ip, "root", pass_word, cmd)
-        msg_box = QtGui.QMessageBox(QtGui.QMessageBox.Warning, "Alert", "防止回退补丁:%s" % result_msg)
-        msg_box.exec_()
+        #cmd = ""
+        #pass_word = self.lineEdit_2.text()
+        #result_msg = exec_cmd(exec_ip, "root", pass_word, cmd)
 
+        form = QtGui.QDialog()
+        ui = Ui_DialogMessage(form)
+        ui.setupUi()
+        form.exec_()
 
 if __name__ == "__main__":
     app = QtGui.QApplication(sys.argv)
